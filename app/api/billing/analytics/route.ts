@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { billingTracker } from '../../../lib/billing-tracker';
+import { billingTracker } from '@/lib/billing-tracker';
 
 export async function GET(request: NextRequest) {
   try {
