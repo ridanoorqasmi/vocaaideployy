@@ -11,6 +11,7 @@ import {
   formatGreetingResponse,
   formatFallbackResponse
 } from '@/lib/services/agent/responseFormatter';
+import type { DatabaseConfig } from '@/lib/services/db/connection';
 
 const prisma = getPrismaClient();
 
@@ -209,7 +210,6 @@ async function handleKbQuery(question: string, tenantId: string) {
 async function handleDbLookup(tenantId: string, identifierValue: string) {
   try {
     const { queryRecord, validateTableMapping } = await import('@/lib/services/db/queryRecord');
-    const { DatabaseConfig } = await import('@/lib/services/db/connection');
     const { decryptPassword } = await import('@/lib/services/db/encryption');
     const dbPrisma = getPrismaClient();
 
